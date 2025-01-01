@@ -23,7 +23,7 @@ const Productcard = ({ itemDetails }) => {
                 </h5>
             </a>
             <p className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
-                {details.subTitle}
+                {/* {details.subTitle} */}
             </p>
             <div className="flex items-center justify-between">
                 <span className="text-md font-bold text-[#22223B] flex"><FaBookOpen  className='mt-1 mr-3'/>{details.pageCount} </span>

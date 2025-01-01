@@ -6,15 +6,14 @@ import { useBooks } from '../hooks/useBooks'
 import { Spinner } from "flowbite-react";
 
 const HomePage = () => {
-    const [searchterm, setSearchTerm] = useState("");
-    const { items, loading, error } = useBooks(searchterm);
+    const [searchterm, setSearchTerm] = useState(null);
+    const { items, loading, error } = useBooks({searchTerm: searchterm});
 
     // handle and set search term of user search
     const handleChange = async (event) => {
         const searchTerm = event.target.value;
         setSearchTerm(searchTerm);
     }
-
 
     return (
         <div className='flex flex-col min-h-screen'>

@@ -5,7 +5,7 @@ const FooterBar = () => {
     return (
         <>
             <Footer container className='bg-[#4a4e69]'>
-                <Footer.Copyright className='text-white' href="#" by="Hansaja™" year={2025} />
+                <Footer.Copyright className='text-white' href="https://nilana-hansaja.netlify.app/" by="Hansaja™" year={2025} />
                 <Footer.LinkGroup className='text-white'>
                     <Footer.Link href="#">About</Footer.Link>
                     <Footer.Link href="#">Privacy Policy</Footer.Link>
