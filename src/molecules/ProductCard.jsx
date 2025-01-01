@@ -1,70 +1,37 @@
-import React, { lazy } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from "flowbite-react";
+import { FaBookOpen } from "react-icons/fa";
 
-const Productcard = () => {
+const Productcard = ({ itemDetails }) => {
+
+    const [details, setDetails] = useState({
+        imgUrl: itemDetails.volumeInfo.imageLinks.thumbnail || "",
+        title : itemDetails.volumeInfo.title || "unTitled",
+        subTitle: itemDetails.volumeInfo.subtitle || "unSubtitled",
+        pageCount: itemDetails.volumeInfo.pageCount || 0,
+        infoLink: itemDetails.volumeInfo.infoLink || '#',
+    });
+
     return (
         <Card
             className="max-w-xs max-h-screen mt-28 bg-[#D5CAC4]"
-            imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-            imgSrc="http://books.google.com/books/content?id=ppjUtAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api"
         >
-            <a href="#">
+            <img src={details.imgUrl} className='w-80 h-96 object-cover' />
+            <a href={details.infoLink}>
                 <h5 className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
-                    Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+                    {details.title}
                 </h5>
             </a>
-            <div className="mb-5 mt-2.5 flex items-center">
-                <svg
-                    className="h-5 w-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                    className="h-5 w-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                    className="h-5 w-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                    className="h-5 w-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                    className="h-5 w-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <span className="ml-3 mr-2 rounded bg-[#4A4E69] px-2.5 py-0.5 text-xs font-semibold text-white dark:bg-[#4A4E69] dark:text-white">
-                    5.0
-                </span>
-            </div>
+            <p className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
+                {details.subTitle}
+            </p>
             <div className="flex items-center justify-between">
-                <span className="text-3xl font-bold text-[#22223B]">$599</span>
+                <span className="text-md font-bold text-[#22223B] flex"><FaBookOpen  className='mt-1 mr-3'/>{details.pageCount} </span>
                 <a
                     href="#"
                     className="rounded-lg bg-[#4A4E69] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#3c3f55] focus:outline-none focus:ring-4 focus:ring-[#4A4E69]"
                 >
-                    Add to cart
+                    View More..
                 </a>
             </div>
         </Card>
