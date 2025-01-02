@@ -4,10 +4,11 @@ import CardList from '../organism/CardList'
 import FooterBar from '../common/FooterBar'
 import { useBooks } from '../hooks/useBooks'
 import { Spinner } from "flowbite-react";
+import ErrorAnimation from '../atoms/ErrorAnimation'
 
 const HomePage = () => {
     const [searchterm, setSearchTerm] = useState(null);
-    const { items, loading, error } = useBooks({searchTerm: searchterm});
+    const { items, loading, error } = useBooks({ searchTerm: searchterm });
 
     // handle and set search term of user search
     const handleChange = async (event) => {
@@ -39,10 +40,15 @@ const HomePage = () => {
                         <div className='flex items-center justify-center'>
                             <Spinner color="purple" aria-label="Purple spinner example" size="xl" />
                         </div>) : (
-                        <CardList items={items}></CardList>
+                        <div>
+                            {error ? (
+                                    <ErrorAnimation error={error} />
+                                ) : (
+                                    <CardList items={items}></CardList>
+                            )}
+                        </div>
                     )}
 
-                    {error && <p className="text-red-500">{error}</p>}
 
                 </div>
             </main>
