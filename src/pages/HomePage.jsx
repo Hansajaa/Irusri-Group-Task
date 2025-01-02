@@ -7,13 +7,15 @@ import { Spinner } from "flowbite-react";
 import ErrorAnimation from '../atoms/ErrorAnimation'
 
 const HomePage = () => {
-    const [searchterm, setSearchTerm] = useState(null);
-    const { items, loading, error } = useBooks({ searchTerm: searchterm });
+    const [searchterm, setSearchTerm] = useState(null); //dynamically change variable when typing
+    const [term, setTerm] = useState(null); // change only when use press enter key
+    const { items, loading, error } = useBooks({ searchTerm: term });
 
-    // handle and set search term of user search
-    const handleChange = async (event) => {
-        const searchTerm = event.target.value;
-        setSearchTerm(searchTerm);
+    //search when press the enter key
+    const handleKeyPress = (e)=>{
+        if(e.key == 'Enter'){
+            setTerm(searchterm);
+        }
     }
 
     return (
@@ -27,7 +29,8 @@ const HomePage = () => {
                 <div className="flex mt-32 items-end justify-end mr-5">
                     <input
                         value={searchterm}
-                        onChange={handleChange}
+                        onChange={(e)=>setSearchTerm(e.target.value)}
+                        onKeyUp={handleKeyPress}
                         className="w-96 rounded-full text-[#22223b]"
                         type="text"
                         placeholder="Search Books"
