@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from "flowbite-react";
 import { FaBookOpen } from "react-icons/fa";
+import placeholderImg from '../assets/images/placeholder-img-for-books.png'
 
 const Productcard = ({ itemDetails }) => {
 
     const [details, setDetails] = useState({
-        imgUrl: itemDetails?.volumeInfo?.imageLinks?.thumbnail || "",
+        imgUrl: itemDetails?.volumeInfo?.imageLinks?.thumbnail || placeholderImg,
+        imgAlt: itemDetails?.volumeInfo?.title+" book cover" || "Book Cover",
         title : itemDetails?.volumeInfo?.title || "unTitled",
         subTitle: itemDetails?.volumeInfo?.subtitle || "unSubtitled",
         pageCount: itemDetails?.volumeInfo?.pageCount || 0,
@@ -16,7 +18,7 @@ const Productcard = ({ itemDetails }) => {
         <Card
             className="max-w-xs max-h-screen mt-28 bg-[#D5CAC4]"
         >
-            <img src={details.imgUrl} className='w-80 h-96 object-cover' />
+            <img src={details.imgUrl} alt={details.imgAlt} className='w-80 h-96 object-cover' />
             <a href={details.infoLink}>
                 <h5 className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
                     {details.title}
