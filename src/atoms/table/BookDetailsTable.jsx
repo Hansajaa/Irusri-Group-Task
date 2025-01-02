@@ -6,8 +6,6 @@ const BookDetailsTable = () => {
 
     const details = useContext(detailsAboutBook);
 
-    console.log(details);
-
     const [bookDetails, setBookDetails] = useState({
         subtitled : details?.volumeInfo?.subtitle || "No subtitle",
         description : details?.volumeInfo?.description || "No description",
