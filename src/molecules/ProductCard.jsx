@@ -5,11 +5,11 @@ import { FaBookOpen } from "react-icons/fa";
 const Productcard = ({ itemDetails }) => {
 
     const [details, setDetails] = useState({
-        imgUrl: itemDetails.volumeInfo.imageLinks.thumbnail || "",
-        title : itemDetails.volumeInfo.title || "unTitled",
-        subTitle: itemDetails.volumeInfo.subtitle || "unSubtitled",
-        pageCount: itemDetails.volumeInfo.pageCount || 0,
-        infoLink: itemDetails.volumeInfo.infoLink || '#',
+        imgUrl: itemDetails?.volumeInfo?.imageLinks?.thumbnail || "",
+        title : itemDetails?.volumeInfo?.title || "unTitled",
+        subTitle: itemDetails?.volumeInfo?.subtitle || "unSubtitled",
+        pageCount: itemDetails?.volumeInfo?.pageCount || 0,
+        infoLink: itemDetails?.volumeInfo?.infoLink || '#',
     });
 
     return (
