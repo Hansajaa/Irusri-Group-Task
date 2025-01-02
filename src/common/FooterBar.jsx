@@ -5,12 +5,9 @@ const FooterBar = () => {
     return (
         <>
             <Footer container className='bg-[#4a4e69]'>
-                <Footer.Copyright className='text-white' href="https://nilana-hansaja.netlify.app/" by="Hansaja™" year={2025} />
+                <Footer.Copyright className='text-white' by="BookStore" year={2025} />
                 <Footer.LinkGroup className='text-white'>
-                    <Footer.Link href="#">About</Footer.Link>
-                    <Footer.Link href="#">Privacy Policy</Footer.Link>
-                    <Footer.Link href="#">Licensing</Footer.Link>
-                    <Footer.Link href="#">Contact</Footer.Link>
+                    <Footer.Link className='text-white font-semibold' href="https://nilana-hansaja.netlify.app">Developed By @Hansaja</Footer.Link>
                 </Footer.LinkGroup>
             </Footer>
         </>

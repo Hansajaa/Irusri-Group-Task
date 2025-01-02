@@ -14,10 +14,10 @@ const NavigationBar = () => {
 
                         {/* Navigations */}
                         <div className="hidden md:flex space-x-6 gap-5">
-                            <p to="/" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">Home</p>
+                            {/* <p to="/" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">Home</p>
                             <p to="/about" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">About</p>
                             <p to="/services" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">Services</p>
-                            <p to="/contact" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">Contact</p>
+                            <p to="/contact" className="hover:text-white hover:scale-105 hover:font-semibold hover:cursor-pointer text-[#f2e9e4]">Contact</p> */}
                         </div>
 
                         {/* Burger button */}
