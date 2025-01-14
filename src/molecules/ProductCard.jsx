@@ -31,7 +31,7 @@ const Productcard = ({ itemDetails }) => {
                 <img src={details.imgUrl} alt={details.imgAlt} className='w-80 h-96 object-cover' />
                 <a href={details.infoLink}>
                     <h5 className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
-                        {details.title}
+                         {details.title.length > 23 ? `${details.title.slice(0,23)} ...` : details.title} 
                     </h5>
                 </a>
                 <p className="text-xl font-semibold tracking-tight text-[#22223B] dark:text-white">
